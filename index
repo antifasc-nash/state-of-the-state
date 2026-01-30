@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People's State of the State</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #0A2342;
+            --classic-red: #8B0000;
+            --off-white: #F9F9F9;
+            --pure-white: #FFFFFF;
+            --text-gray: #333333;
+        }
+
+        body {
+            background-color: var(--off-white);
+            font-family: 'Lato', sans-serif;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px; /* Reduced for mobile edge-to-edge feel */
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 20px auto;
+            background: var(--pure-white);
+            padding: 30px;
+            border-top: 8px solid var(--deep-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--deep-blue);
+            margin: 0 0 10px 0;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--classic-red);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--deep-blue);
+        }
+
+        .guiding-questions {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Mobile Optimization: 16px font prevents iOS zoom */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 15px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px; 
+            box-sizing: border-box;
+            background-color: #fff;
+            -webkit-appearance: none; /* Removes inner shadows on iOS */
+        }
+
+        textarea {
+            height: 180px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--deep-blue);
+            box-shadow: 0 0 5px rgba(10, 35, 66, 0.2);
+        }
+
+        button {
+            background-color: var(--deep-blue);
+            color: white;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: var(--classic-red);
+        }
+
+        /* Thank You Message Styling */
+        #thanks-message {
+            display: none;
+            text-align: center;
+            padding: 40px 10px;
+        }
+
+        #thanks-message h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-blue);
+            font-size: 1.8rem;
+        }
+
+        #thanks-message p {
+            font-size: 1.2rem;
+            color: var(--classic-red);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #888;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="form-content">
+        <header>
+            <h1>People's State of the State</h1>
+            <p class="subtitle">No government lies. No racism, bigotry, and hate. No compromises with a fascist state.</p>
+        </header>
+
+        <form id="state-form" action="https://formspree.io/f/mqeblldn" method="POST">
+            
+            <div class="form-group">
+                <label for="name">Name (or Alias)</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="zipcode">Zip Code</label>
+                <input type="text" id="zipcode" name="zipcode">
+            </div>
+
+            <div class="form-group">
+                <label for="statement">Statement</label>
+                <span class="guiding-questions">
+                    How do you feel about the state of Tennessee? What would you say if you were talking to the whole state? What would you want people to know? Have you, your family, friends, or neighbors been affected by the state's policies? What makes you hopeful about the next year, and what makes you nervous? <br><br><strong>We will not use your name or any identifying information with your response!</strong>
+                </span>
+                <textarea id="statement" name="statement"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Stay in Touch</label>
+                <p style="font-size: 0.9rem; margin-top: -5px; color: #666; margin-bottom: 8px;">If you would like to stay in touch, please enter your email here.</p>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <button type="submit" id="submit-btn">Submit Response</button>
+        </form>
+    </div>
+
+    <div id="thanks-message">
+        <h2>Thank you for your response!</h2>
+        <p>Please join us on February 2 from 5:00-7:00 at the Tennessee State Capitol to make your voice heard!</p>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 People's State of the State
+</footer>
+
+<script>
+    const form = document.getElementById('state-form');
+    const formContainer = document.getElementById('form-content');
+    const thanksMessage = document.getElementById('thanks-message');
+
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                formContainer.style.display = 'none';
+                thanksMessage.style.display = 'block';
+            } else {
+                alert("Oops! There was a problem submitting your form. Please try again.");
+                submitBtn.innerText = "Submit Response";
+                submitBtn.disabled = false;
+            }
+        }).catch(error => {
+            alert("Oops! There was a connection error.");
+            submitBtn.innerText = "Submit Response";
+            submitBtn.disabled = false;
+        });
+    };
+</script>
+
+</body>
+</html>
